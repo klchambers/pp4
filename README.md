@@ -167,7 +167,13 @@ To contribute, make a pull request from the [project repository](https://github.
 
 ## Technologies Used
 
-
+* [**Django**](https://www.djangoproject.com): Python framework for templating, URL routing, admin interface, and more
+* [**Visual Studio Code**](https://code.visualstudio.com/): Text editor for development
+* [**Heroku**](https://www.heroku.com): Live deployment of web app
+* [**Neon**](https://www.neon.tech): Serverless open-source alternative to ElephantSQL
+* [**Gunicorn**](https://www.gunicorn.org): Python WSGI HTTP Server for UNIX
+* [**Psycopg**](https://pypi.org/project/psycopg2/): PostgreSQL database adapter for Python
+* [**Lucidchart**](https://www.lucidchart.com/pages/): Creation of diagram schema and Entity Relationship Diagrams
 
 <a id=acknowledgements></a>
 
