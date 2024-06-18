@@ -137,7 +137,7 @@ Development was started by cloning Code Institute's project template (available 
 
 ### Contributing
 
-To contribute, make a pull request from the [project repository](https://github.com/klchambers/todo-list). When merged, any changes will automatically be reflected in the live deployment on Heroku.
+To contribute, make a pull request from the [project repository](https://github.com/klchambers/pp4). When merged, any changes will automatically be reflected in the live deployment on Heroku.
 
 <a id=deployment></a>
 
