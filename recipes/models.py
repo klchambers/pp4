@@ -12,6 +12,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="user_recipes")
     ingredients = models.TextField()
     instructions = models.TextField()
-    total_cook_time = models.FloatField()
+    total_cook_time = models.DurationField(
+        help_text='Please enter the total cook time in the format HH:MM (e.g., 01:30 for 1 hour and 30 minutes).') # noqa
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
