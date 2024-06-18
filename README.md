@@ -89,6 +89,14 @@ A brief description of the five entities in the above schematic diagram:
 
 * **FavouriteRecipe:** Represents the relationship between users and their favourite recipes. A One-to-Many relationship whereby a single user can favourite multiple recipes.
 
+#### Entity Relationship Diagrams
+
+<details>
+<summary>Recipe ERD</summary>
+<br>
+<img src="documentation/recipes_erd.png">
+</details>
+
 <a id=further-development-and-future-features></a>
 
 ### Further Development and Future Features
