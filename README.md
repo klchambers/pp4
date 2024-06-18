@@ -27,9 +27,7 @@
 
 ## Introduction
 
-To Do List is a CLI application written in Python that allows a user to record and store their To Do tasks, mark tasks as complete, and see when they created or completed tasks.
 
-![Mockup of Application in Heroku mock terminal across different device screens](documentation/amIResponsiveMockup.png)
 
 <a id=deployed-site></a>
 
