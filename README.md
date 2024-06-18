@@ -75,7 +75,19 @@ The program has been deployed to Heroku and can be accessed [here](https://pp4as
 
 ### Data Model
 
+![Application database schematic](documentation/database_schema.png)
 
+A brief description of the five entities in the above schematic diagram:
+
+* **User:** Represents a user of the platform who can share recipes, comment on recipes, and favourite recipes.
+
+* **Recipe** Represents a recipe shared by a user. It includes details like title, description, ingredients, directions, etc.
+
+* **RecipeCategory:** Represents a cuisine, category, or type of recipe e.g. ‘Italian’, ‘vegetarian’, or ‘simple’. A Many-to-Many relationship i.e. recipes can be assigned to a number of different categories.
+
+* **Comment:** Represents a comment made by a user on a recipe, has a One-to-One relationship with the Recipe entity and includes comment_text and a date_created attribute.
+
+* **FavouriteRecipe:** Represents the relationship between users and their favourite recipes. A One-to-Many relationship whereby a single user can favourite multiple recipes.
 
 <a id=further-development-and-future-features></a>
 
