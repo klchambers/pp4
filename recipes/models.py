@@ -16,6 +16,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """
+    Post model represents a recipe entry in the application
+    """
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150, unique=True)
     author = models.ForeignKey(
@@ -27,6 +30,11 @@ class Post(models.Model):
         null=True)
     ingredients = models.TextField(null=True)
     instructions = models.TextField(null=True)
+    """
+    DurationField = 'A field for storing periods of time - modeled in Python
+    by timedelta.'
+    - https://docs.djangoproject.com/en/1.10/ref/models/fields/#durationfield
+    """
     total_cook_time = models.DurationField(
         null=True,
         blank=True,
@@ -36,3 +44,6 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     # default=0 sets default status of a new post to 'draft' not 'published'
     status = models.IntegerField(choices=STATUS, default=0)
+
+    def __str__(self):
+        return f"{self.title} | posted by {self.author} on {self.created_on}"
