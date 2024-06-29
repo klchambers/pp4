@@ -37,9 +37,8 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="category_recipes",
         null=True)
-    ingredients = models.ForeignKey(
+    ingredients = models.ManyToManyField(
         Ingredient,
-        on_delete=models.CASCADE,
     )
     instructions = models.TextField(null=True)
     """
