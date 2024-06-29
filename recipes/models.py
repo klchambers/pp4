@@ -15,9 +15,9 @@ class Category(models.Model):
     created_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
 
-class Post(models.Model):
+class Recipe(models.Model):
     """
-    Post model represents a recipe entry in the application
+    Recipe model represents a recipe entry in the application
     """
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150, unique=True)
@@ -26,9 +26,8 @@ class Post(models.Model):
     recipe_category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_name="category_posts",
+        related_name="category_recipes",
         null=True)
-    ingredients = models.TextField(null=True)
     instructions = models.TextField(null=True)
     """
     DurationField = 'A field for storing periods of time - modeled in Python
@@ -47,3 +46,14 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
+
+
+class Ingredient(models.Model):
+    name = models.CharField(
+        max_length=100, unique=True, verbose_name='Ingredient Name')
+    quantity = models.CharField(
+        max_length=50, verbose_name='Ingredient Quantity')
+    recipes = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="Ingredients",)
