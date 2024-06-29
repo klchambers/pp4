@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# Create your models here.
 class Category(models.Model):
     # category name limit of 50 characters & must be unique prevent duplicates
     category_name = models.CharField(max_length=50, unique=True)
@@ -13,6 +12,16 @@ class Category(models.Model):
     and SET_NULL ensures categories retained even if a user account is deleted
     """
     created_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+
+
+class Ingredient(models.Model):
+    """
+    Ingredient model has many-to-many relationship with Recipe model
+    """
+    name = models.CharField(
+        max_length=100, unique=True, verbose_name='Ingredient Name')
+    quantity = models.CharField(
+        max_length=50, verbose_name='Ingredient Quantity')
 
 
 class Recipe(models.Model):
@@ -28,6 +37,10 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="category_recipes",
         null=True)
+    ingredients = models.ForeignKey(
+        Ingredient,
+        on_delete=models.CASCADE,
+    )
     instructions = models.TextField(null=True)
     """
     DurationField = 'A field for storing periods of time - modeled in Python
@@ -46,17 +59,3 @@ class Recipe(models.Model):
 
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
-
-
-class Ingredient(models.Model):
-    """
-    Ingredient model has many-to-many relationship with Recipe model
-    """
-    name = models.CharField(
-        max_length=100, unique=True, verbose_name='Ingredient Name')
-    quantity = models.CharField(
-        max_length=50, verbose_name='Ingredient Quantity')
-    recipes = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-        related_name="Ingredients")
