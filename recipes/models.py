@@ -49,6 +49,9 @@ class Recipe(models.Model):
 
 
 class Ingredient(models.Model):
+    """
+    Ingredient model has many-to-many relationship with Recipe model
+    """
     name = models.CharField(
         max_length=100, unique=True, verbose_name='Ingredient Name')
     quantity = models.CharField(
@@ -56,4 +59,4 @@ class Ingredient(models.Model):
     recipes = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name="Ingredients",)
+        related_name="Ingredients")
