@@ -19,9 +19,15 @@ class Ingredient(models.Model):
     Ingredient model has many-to-many relationship with Recipe model
     """
     name = models.CharField(
-        max_length=100, unique=True, verbose_name='Ingredient Name')
+        max_length=100,
+        unique=True,
+        verbose_name='Ingredient Name')
     quantity = models.CharField(
-        max_length=50, verbose_name='Ingredient Quantity')
+        max_length=50,
+        verbose_name='Ingredient Quantity')
+
+    def __str__(self):
+        return self.name
 
 
 class Recipe(models.Model):
