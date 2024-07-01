@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Category, Ingredient, RecipeIngredient # noqa
+from .models import Recipe, Category, Ingredient, RecipeIngredient, Comment # noqa
 
 
 class RecipeIngredientInline(admin.TabularInline):
@@ -26,3 +26,4 @@ class RecipeAdmin(admin.ModelAdmin):
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
+admin.site.register(Comment)
