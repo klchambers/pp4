@@ -22,9 +22,6 @@ class Ingredient(models.Model):
         max_length=100,
         unique=True,
         verbose_name='Ingredient Name')
-    quantity = models.CharField(
-        max_length=50,
-        verbose_name='Ingredient Quantity')
 
     def __str__(self):
         return self.name
@@ -43,9 +40,9 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="category_recipes",
         null=True)
-    ingredients = models.ManyToManyField(
-        Ingredient,
-    )
+    # ingredients = models.ManyToManyField(
+    #     Ingredient,
+    # )
     instructions = models.TextField(null=True)
     """
     DurationField = 'A field for storing periods of time - modeled in Python
@@ -57,10 +54,21 @@ class Recipe(models.Model):
         blank=True,
         default=None,
         # help_text displays formatting instructions to the user
-        help_text='Please enter the total cook time in the format HH:MM (e.g., 01:30 for 1 hour and 30 minutes).') # noqa
+        help_text='Please enter the total cook time in the format HH:MM:55 (e.g., 01:30:00 for 1 hour and 30 minutes).') # noqa
     created_on = models.DateTimeField(auto_now_add=True)
     # default=0 sets default status of a new post to 'draft' not 'published'
     status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
+
+
+class RecipeIngredient(models.Model):
+
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quantity = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"""
+    {self.quantity} of {self.ingredient.name} in {self.recipe.title}"""
