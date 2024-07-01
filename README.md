@@ -179,4 +179,4 @@ To contribute, make a pull request from the [project repository](https://github.
 
 ## Acknowledgements
 
-
+* Code to register ModelAdmin classes and configure list views in recipes/admin.py adapted from [MDN Web Docs: *Django Tutorial Part 4: Django admin site*](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site)
