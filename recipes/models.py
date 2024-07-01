@@ -13,6 +13,9 @@ class Category(models.Model):
     """
     created_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return self.category_name
+
 
 class Ingredient(models.Model):
     """
