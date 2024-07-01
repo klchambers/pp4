@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Recipe, Category, Ingredient, RecipeIngredient, Comment # noqa
+from .models import Recipe, Category, Ingredient, IngredientQuantity, Comment # noqa
 from django_summernote.admin import SummernoteModelAdmin
 
 
-class RecipeIngredientInline(admin.TabularInline):
-    model = RecipeIngredient
+class IngredientQuantityInline(admin.TabularInline):
+    model = IngredientQuantity
 
 
 class IngredientAdmin(admin.ModelAdmin):
@@ -16,15 +16,14 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('category_name',)
 
 
+@admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
-    inlines = [RecipeIngredientInline,]
+    inlines = [IngredientQuantityInline,]
     list_display = ('title', 'author', 'created_on', 'status')
     search_fields = ('title', 'author__username')
     list_filter = ('status', 'created_on', 'recipe_category')
-    # filter_horizontal = ('ingredients',)
 
 
-admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Comment)

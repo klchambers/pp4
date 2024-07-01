@@ -66,8 +66,11 @@ class Recipe(models.Model):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
 
 
-class RecipeIngredient(models.Model):
-
+class IngredientQuantity(models.Model):
+    """
+    IngredientQuantity is an intermediate model to link a quantity value to
+    an ingredient in a specific recipe
+    """
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.CharField(max_length=50)
