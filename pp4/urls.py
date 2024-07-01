@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path("", include("recipes.urls"), name="recipes-urls"),
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
 ]
