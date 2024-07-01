@@ -22,6 +22,7 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_display = ('title', 'author', 'created_on', 'status')
     search_fields = ('title', 'author__username')
     list_filter = ('status', 'created_on', 'recipe_category')
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Category, CategoryAdmin)
