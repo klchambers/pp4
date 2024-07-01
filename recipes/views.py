@@ -1,7 +1,8 @@
-from django.shortcuts import render # noqa
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.views import generic
+from .models import Recipe
 
 
-# Create your views here.
-def my_site(request):
-    return HttpResponse('Hello, world!')
+class RecipeList(generic.ListView):
+    queryset = Recipe.objects.all()
+    template_name = "recipe_list.html"
