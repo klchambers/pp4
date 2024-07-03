@@ -4,20 +4,30 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- recipe title goes in these h1 tags -->
-                <h1 class="post-title">{{ recipe.title }}</h1>
-                <!-- Recipe author goes before the | the recipe's created date goes after -->
-                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
-            </div>
+            <!-- Left col = image, title, author & ingredients-->
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder">
+
+                <h1 class="post-title">{{ recipe.title }}</h1>
+                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+                <div class="card-body">
+                    {% for ingredientquantity in ingredient_quantities %}
+                    <p class="card-text">
+                        {{ ingredientquantity.ingredient }}: {{ ingredientquantity.quantity }}
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Right column = method & comments-->
+            <div class="col-md-6 masthead-text">
+                <h3>Method</h3>
+                <!-- safe filter allows HTML formatting to be applied -->
+                <p>{{ recipe.instructions | safe}}</p>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
+    <!-- <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
@@ -29,6 +39,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-{% endblock content %}
+    {% endblock content %}
