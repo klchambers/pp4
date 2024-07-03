@@ -76,7 +76,7 @@ class IngredientQuantity(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(
+    recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter")
