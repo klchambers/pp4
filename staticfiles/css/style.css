@@ -1,4 +1,12 @@
-.scale {
-    width: 100%;
-    height: auto;
+#parent .recipe-link {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    font-family: 'Merriweather', Arial, Helvetica, sans-serif;
+}
+
+#parent .ingredientsList p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

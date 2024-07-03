@@ -6,8 +6,8 @@
         <div class="row g-10">
             <!-- Left col = image, title, author & ingredients-->
             <div class="col-md-6">
-                <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder">
-                <h1 class="post-title">{{ recipe.title }}</h1>
+                <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder" style="width: 100%; height: auto;">
+                <h1>{{ recipe.title }}</h1>
                 <!-- If statement checks how many categories are linked to the recipe and prints them on page -->
                 {% if recipe.recipe_category.all|length > 1 %}
                 <p>Categories:
@@ -25,7 +25,7 @@
                 {% endif %}
                 <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
                 <!-- For loop iterates of items in ingredient_quantities and prints ingredient & corresponding quantity value -->
-                <div class="card-body">
+                <div class="card-body ingredientsList">
                     {% for ingredientquantity in ingredient_quantities %}
                     <p class="card-text">
                         {{ ingredientquantity.ingredient }}: {{ ingredientquantity.quantity }}
