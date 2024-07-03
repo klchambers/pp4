@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row g-0">
             <!-- Left col = image, title, author & ingredients-->
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="col-md-6 masthead-image">
                 <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder">
-
                 <h1 class="post-title">{{ recipe.title }}</h1>
                 <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+                <!-- For loop iterates of items in ingredient_quantities and prints ingredient & corresponding quantity value -->
                 <div class="card-body">
                     {% for ingredientquantity in ingredient_quantities %}
                     <p class="card-text">
@@ -26,19 +26,5 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                {% for ingredientquantity in ingredient_quantities %}
-                <p class="card-text">
-                    {{ ingredientquantity.ingredient }}: {{ ingredientquantity.quantity }}
-                </p>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div> -->
 
     {% endblock content %}
