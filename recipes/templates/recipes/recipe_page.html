@@ -1,13 +1,28 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 
-<div class="masthead">
+<div>
     <div class="container">
-        <div class="row g-0">
+        <div class="row g-10">
             <!-- Left col = image, title, author & ingredients-->
-            <div class="col-md-6 masthead-image">
+            <div class="col-md-6">
                 <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder">
                 <h1 class="post-title">{{ recipe.title }}</h1>
+                <!-- If statement checks how many categories are linked to the recipe and prints them on page -->
+                {% if recipe.recipe_category.all|length > 1 %}
+                <p>Categories:
+                    {% for category in recipe.recipe_category.all %}
+                    {{ category.category_name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                {% elif recipe.recipe_category.all|length == 1 %}
+                <p>Category:
+                    {% for category in recipe.recipe_category.all %}
+                    {{ category.category_name }}
+                    {% endfor %}
+                </p>
+                {% else %}
+                {% endif %}
                 <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
                 <!-- For loop iterates of items in ingredient_quantities and prints ingredient & corresponding quantity value -->
                 <div class="card-body">
@@ -19,7 +34,7 @@
                 </div>
             </div>
             <!-- Right column = method & comments-->
-            <div class="col-md-6 masthead-text">
+            <div class="col-md-6">
                 <h3>Method</h3>
                 <!-- safe filter allows HTML formatting to be applied -->
                 <p>{{ recipe.instructions | safe}}</p>
