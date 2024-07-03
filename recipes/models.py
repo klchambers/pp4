@@ -62,7 +62,7 @@ class Recipe(models.Model):
 
     @property
     def comment_count(self):
-        return self.comments.count()
+        return self.comments.filter(approved=True).count()
 
 
 class IngredientQuantity(models.Model):
