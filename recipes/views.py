@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Recipe
+from .models import Recipe, IngredientQuantity
 
 
 class RecipeList(generic.ListView):
@@ -25,9 +25,14 @@ def recipe_page(request, slug):
 
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
+    ingredient_quantities = IngredientQuantity.objects.filter(recipe=recipe)
+
+    context = {
+        'recipe': recipe,
+        'ingredient_quantities': ingredient_quantities}
 
     return render(
         request,
         "recipes/recipe_page.html",
-        {"recipe": recipe},
+        context,
     )

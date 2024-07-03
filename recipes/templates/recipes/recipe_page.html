@@ -21,11 +21,11 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The recipe content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
+                {% for ingredientquantity in ingredient_quantities %}
                 <p class="card-text">
-                    {{ recipe.content | safe }}
+                    {{ ingredientquantity.ingredient }}: {{ ingredientquantity.quantity }}
                 </p>
+                {% endfor %}
             </div>
         </div>
     </div>
