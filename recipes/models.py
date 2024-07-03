@@ -43,9 +43,6 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="category_recipes",
         null=True)
-    # ingredients = models.ManyToManyField(
-    #     Ingredient,
-    # )
     instructions = models.TextField(null=True)
     """
     DurationField = 'A field for storing periods of time - modeled in Python
