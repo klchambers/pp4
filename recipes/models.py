@@ -60,6 +60,10 @@ class Recipe(models.Model):
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
 
+    @property
+    def comment_count(self):
+        return self.comments.count()
+
 
 class IngredientQuantity(models.Model):
     """
