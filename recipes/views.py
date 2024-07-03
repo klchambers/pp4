@@ -28,6 +28,6 @@ def recipe_page(request, slug):
 
     return render(
         request,
-        "recipe/recipe_page.html",
+        "recipes/recipe_page.html",
         {"recipe": recipe},
     )
