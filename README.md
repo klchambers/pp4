@@ -173,6 +173,9 @@ To contribute, make a pull request from the [project repository](https://github.
 * [**Neon**](https://www.neon.tech): Serverless open-source alternative to ElephantSQL
 * [**Gunicorn**](https://www.gunicorn.org): Python WSGI HTTP Server for UNIX
 * [**Psycopg**](https://pypi.org/project/psycopg2/): PostgreSQL database adapter for Python
+* [**Django Allauth**]():
+* [**Summernote**]():
+* [**Whitenoise**](): 
 * [**Lucidchart**](https://www.lucidchart.com/pages/): Creation of diagram schema and Entity Relationship Diagrams
 
 <a id=acknowledgements></a>
