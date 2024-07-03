@@ -1,5 +1,9 @@
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 {% load static %}
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -10,7 +14,9 @@
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
@@ -30,7 +36,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><h1 class="logo">RecipeMe</h1></a>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <h1 class="logo">RecipeMe</h1>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,16 +50,27 @@
                             href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a
-                          class="nav-link
-                          {% if request.path == about_url %}active{%endif%}"
-                          aria-current="page"
-                          href="{% url 'about' %}"
-                          >About</a
-                        >
-                      </li>
+                        <a class="nav-link
+                          {% if request.path == about_url %}active{%endif%}" aria-current="page"
+                            href="{% url 'about' %}">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
+                <span class="text-muted">
                     Share your Recipes on RecipeMe
                 </span>
             </div>
@@ -69,7 +88,8 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
         <p class="m-0 text-center">Kieran Chambers, 2024</p>
-        <p class="m-0 text-center">Social Links: <i class="fab fa-instagram-square ms-3"></i>
+        <p class="m-0 text-center">
+            <i class="fab fa-instagram-square"></i>
             <i class="fab fa-github-square ms-3"></i>
         </p>
     </footer>

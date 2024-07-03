@@ -3,6 +3,21 @@
     color: black;
 }
 
+.btn-signup {
+    background-color: #d28b49;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #d28b49;
+}
+
+footer p i {
+    font-size: 2rem;
+}
+
 .logo {
     font-family: 'Merriweather', Arial, Helvetica, sans-serif;
 }
