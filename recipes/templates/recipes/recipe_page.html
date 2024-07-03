@@ -6,8 +6,20 @@
         <div class="row g-10">
             <!-- Left col = image, title, author & ingredients-->
             <div class="col-md-6">
-                <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder" style="width: 100%; height: auto;">
+                <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder"
+                    style="width: 100%; height: auto;">
                 <h1>{{ recipe.title }}</h1>
+                <!-- Displaying count of comments -->
+                <div class="row">
+                    <div class="col-12">
+                        <strong class="text-secondary">
+                            <a href="#comments"><i class="far fa-comments"></i> {{ comment_count }}</a>
+                        </strong>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                </div>
                 <!-- If statement checks how many categories are linked to the recipe and prints them on page -->
                 {% if recipe.recipe_category.all|length > 1 %}
                 <p>Categories:
@@ -38,6 +50,42 @@
                 <h3>Method</h3>
                 <!-- safe filter allows HTML formatting to be applied -->
                 <p>{{ recipe.instructions | safe }}</p>
+
+                <!-- Displaying Comments -->
+                <div class="row">
+                    <div class="col-md-8 card mb-4 mt-3">
+                        <a id="comments">
+                            <h3>Comments:</h3>
+                        </a>
+                        {% if comments|length > 0 %}
+                        <div class="card-body">
+                            <!-- For loop iterates through comments -->
+                            {% for comment in comments %}
+                            <div class="p-2 comments
+                {% if not comment.approved and comment.author == user %}
+                faded{% elif not comment.approved %} d-none{% endif %}">
+                                <p class="font-weight-bold">
+                                    {{ comment.author }}
+                                    <span class="font-weight-normal">
+                                        {{ comment.created_on }}
+                                    </span> wrote:
+                                </p>
+                                <div id="comment{{ comment.id }}">
+                                    {{ comment.body | linebreaks }}
+                                </div>
+                                {% if not comment.approved and comment.author == user %}
+                                <p class="approval">
+                                    This comment is awaiting approval
+                                </p>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p>Nobody has commented yet! Be the first...</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

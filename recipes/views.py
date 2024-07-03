@@ -26,10 +26,14 @@ def recipe_page(request, slug):
     queryset = Recipe.objects.filter(status=1)
     recipe = get_object_or_404(queryset, slug=slug)
     ingredient_quantities = IngredientQuantity.objects.filter(recipe=recipe)
+    comments = recipe.comments.all().order_by("-created_on")
+    comment_count = recipe.comments.filter(approved=True).count()
 
     context = {
         'recipe': recipe,
-        'ingredient_quantities': ingredient_quantities}
+        'ingredient_quantities': ingredient_quantities,
+        "comments": comments,
+        "comment_count": comment_count}
 
     return render(
         request,

@@ -3,6 +3,11 @@ footer p i, footer p a {
     color: black;
 }
 
+footer p i:hover, footer p a:hover {
+    text-decoration: none;
+    color: black;
+}
+
 footer p i {
     font-size: 1.5rem;
 }
