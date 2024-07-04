@@ -75,20 +75,15 @@ def recipe_page(request, slug):
 # https://docs.djangoproject.com/en/5.0/topics/auth/default/#auth-admin
 @login_required
 def upload_recipe(request, recipe_id=None):
-    if recipe_id:
-        recipe = get_object_or_404(Recipe, id=recipe_id)
-    else:
-        recipe = Recipe(author=request.user)
-
     if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
+        form = RecipeForm(request.POST)
         if form.is_valid():
             # Save the recipe
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
 
-            # Extract ingredients and quantities
+            # Process ingredients and quantities
             ingredients_input = form.cleaned_data['ingredients']
             quantities_input = form.cleaned_data['quantities']
 
@@ -99,25 +94,21 @@ def upload_recipe(request, recipe_id=None):
                                for quantity in quantities_input.split(',')
                                if quantity.strip()]
 
-            # Clear existing ingredient quantities for this recipe
-            recipe.ingredients.clear()
-
-            # Process ingredients and quantities
+            # Create IngredientQuantity instances
             for idx, ingredient_name in enumerate(ingredients_list):
-                # Check if ingredient exists, otherwise create it
-                ingredient, created = Ingredient.objects.get_or_create(
+                ingredient, _ = Ingredient.objects.get_or_create(
                     name=ingredient_name)
 
-                # Create IngredientQuantity instance
+                # Create or update IngredientQuantity instance
                 IngredientQuantity.objects.create(
                     recipe=recipe,
                     ingredient=ingredient,
                     quantity=quantities_list[idx] if idx < len(quantities_list)
                     else ''
                 )
-            # Redirect after successful recipe submission
-            return redirect('recipe_page', slug=recipe.slug)
+
+            return redirect('home')  # Redirect after successful save
     else:
-        form = RecipeForm(instance=recipe)
+        form = RecipeForm()
 
     return render(request, 'recipes/upload_recipe.html', {'form': form})
