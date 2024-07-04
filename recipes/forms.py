@@ -28,4 +28,6 @@ class RecipeForm(forms.ModelForm):
 # https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/
 RecipeFormSet = inlineformset_factory(
     Recipe, IngredientQuantity,
-    fields=['ingredient', 'quantity'])
+    fields=['ingredient', 'quantity'],
+    can_delete=False,
+    extra=1)

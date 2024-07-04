@@ -5,8 +5,9 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-                <h1>Submit a Recipe</h1>
+            <div class="col-md-10 col-lg-12 card mb-4 mt-3 py-3">
+                <h3>Submit a Recipe</h3>
+                <hr>
                 <form method="post">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -14,7 +15,7 @@
                     {% for form in formset %}
                         {{ form|crispy }}
                     {% endfor %}
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-signup">Submit</button>
                 </form>
             </div>
         </div>
