@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Recipe, Ingredient, IngredientQuantity
 from .forms import CommentForm, RecipeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 class RecipeList(generic.ListView):
@@ -38,6 +39,10 @@ def recipe_page(request, slug):
             comment.author = request.user
             comment.recipe = recipe
             comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
 
     comment_form = CommentForm()
 
@@ -82,7 +87,10 @@ def upload_recipe(request, recipe_id=None):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Your recipe is submitted and awaiting approval!'
+            )
             # Process ingredients and quantities
             ingredients_input = form.cleaned_data['ingredients']
             quantities_input = form.cleaned_data['quantities']
