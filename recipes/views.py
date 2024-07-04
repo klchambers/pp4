@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Recipe, IngredientQuantity
-from .forms import CommentForm
+from .forms import CommentForm, RecipeFormSet
 
 
 class RecipeList(generic.ListView):
@@ -52,3 +52,34 @@ def recipe_page(request, slug):
         "recipes/recipe_page.html",
         context,
     )
+
+
+# def upload_recipe(request):
+#     if request.method == 'POST':
+#         form = RecipeForm(request.POST)
+#         if form.is_valid():
+#             recipe = form.save(commit=False)
+#             recipe.author = request.user
+#             recipe.save()
+#             form.save_m2m()  # Save the many-to-many data for the form
+#             # Redirect sto recipe_page
+#             return redirect('recipe_page', slug=recipe.slug)
+#     else:
+#         form = RecipeForm()
+
+#     return render(request, 'recipes/upload_recipe.html', {'form': form})
+
+def upload_recipe(request, recipe_id=None):
+    if recipe_id:
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+    else:
+        recipe = Recipe()
+    if request.method == 'POST':
+        formset = RecipeFormSet(request.POST, instance=recipe)
+
+        if formset.is_valid():
+            formset.save()
+    else:
+        formset = RecipeFormSet(instance=recipe)
+
+    return render(request, 'recipes/upload_recipe.html', {'formset': formset})

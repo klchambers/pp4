@@ -52,7 +52,7 @@ class Recipe(models.Model):
         blank=True,
         default=None,
         # help_text displays formatting instructions to the user
-        help_text='Please enter the total cook time in the format HH:MM:55 (e.g., 01:30:00 for 1 hour and 30 minutes).') # noqa
+        help_text='Please enter the total cook time in the format HH:MM:SS (e.g., 01:30:00 for 1 hour and 30 minutes).') # noqa
     created_on = models.DateTimeField(auto_now_add=True)
     # default=0 sets default status of a new post to 'draft' not 'published'
     status = models.IntegerField(choices=STATUS, default=0)
@@ -67,7 +67,7 @@ class Recipe(models.Model):
 
 class IngredientQuantity(models.Model):
     """
-    IngredientQuantity is an intermediate model to link a quantity value to
+    IngredientQuantity link a quantity value to
     an ingredient in a specific recipe
     """
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
