@@ -173,10 +173,10 @@ To contribute, make a pull request from the [project repository](https://github.
 * [**Neon**](https://www.neon.tech): Serverless open-source alternative to ElephantSQL
 * [**Gunicorn**](https://www.gunicorn.org): Python WSGI HTTP Server for UNIX
 * [**Psycopg**](https://pypi.org/project/psycopg2/): PostgreSQL database adapter for Python
-* [**Django Allauth**]():
-* [**Summernote**]():
-* [**Whitenoise**](): 
-* [**Crispy Forms**](): 
+* [**Django Allauth**](https://docs.allauth.org/en/latest/): Integrated set of Django applications addressing authentication, registration, and account management
+* [**Summernote**](https://summernote.org/): Bootstrap WYSIWYG Editor
+* [**Whitenoise**](https://whitenoise.readthedocs.io/en/latest/): Static file serving for Python web apps
+* [**Crispy Forms**](https://django-crispy-forms.readthedocs.io/en/latest/): Django form styling
 * [**Lucidchart**](https://www.lucidchart.com/pages/): Creation of diagram schema and Entity Relationship Diagrams
 
 <a id=acknowledgements></a>
