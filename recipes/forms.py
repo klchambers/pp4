@@ -10,6 +10,16 @@ class CommentForm(forms.ModelForm):
 
 
 class RecipeForm(forms.ModelForm):
+
+    ingredients = forms.CharField(
+        label='Ingredients',
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Enter ingredients separated by commas'}))
+    quantities = forms.CharField(
+        label='Quantities',
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Enter quantities separated by commas'}))
+
     class Meta:
         model = Recipe
         fields = (
@@ -27,7 +37,8 @@ class RecipeForm(forms.ModelForm):
 # Available here:
 # https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/
 RecipeFormSet = inlineformset_factory(
-    Recipe, IngredientQuantity,
+    Recipe,
+    IngredientQuantity,
     fields=['ingredient', 'quantity'],
     can_delete=False,
     extra=1)

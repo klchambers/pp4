@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .models import Recipe, IngredientQuantity
-from .forms import CommentForm, RecipeFormSet, RecipeForm
+from .models import Recipe, Ingredient, IngredientQuantity
+from .forms import CommentForm, RecipeForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -80,23 +80,43 @@ def upload_recipe(request, recipe_id=None):
     else:
         recipe = Recipe(author=request.user)
     if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
+        form = RecipeForm(request.POST)
         if form.is_valid():
-            recipe = form.save(commit=False)
-            formset = RecipeFormSet(request.POST, instance=recipe)
-            if formset.is_valid():
-                # Save recipe form data once valid
-                recipe.save()
-                # save ingredient formset
-                formset.save()
-                # redirect to homepage
-                return redirect('home')
-        else:
-            formset = RecipeFormSet(request.POST, instance=recipe)
-    else:
-        form = RecipeForm(instance=recipe)
-        formset = RecipeFormSet(instance=recipe)
+            # Extract ingredients and quantities
+            ingredients_input = form.cleaned_data['ingredients']
+            quantities_input = form.cleaned_data['quantities']
 
-    return render(
-        request, 'recipes/upload_recipe.html',
-        {'formset': formset, 'form': form})
+            ingredients_list = [ingredient.strip().capitalize()
+                                for ingredient in ingredients_input.split(',')
+                                if ingredient.strip()]
+            quantities_list = [quantity.strip()
+                               for quantity in quantities_input.split(',')
+                               if quantity.strip()]
+
+            # Save the recipe
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+
+        # Process ingredients and quantities
+        for idx, ingredient_name in enumerate(ingredients_list):
+            # Check if ingredient exists, otherwise create it
+            ingredient, created = Ingredient.objects.get_or_create(
+                name=ingredient_name)
+
+            # Create IngredientQuantity instance
+            IngredientQuantity.objects.create(
+                recipe=recipe,
+                ingredient=ingredient,
+                quantity=quantities_list[idx] if idx < len(
+                    quantities_list) else ''
+            )
+
+        return redirect('home')  # Redirect after successful save
+    else:
+        form = RecipeForm()
+
+        return render(
+            request, 'recipes/upload_recipe.html',
+            {'form': form}
+        )
