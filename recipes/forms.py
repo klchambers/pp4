@@ -1,4 +1,4 @@
-from .models import Comment, Recipe, IngredientQuantity, Category
+from .models import Comment, Recipe, IngredientQuantity
 from django import forms
 from django.forms import inlineformset_factory
 
@@ -14,7 +14,6 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = (
             'title',
-            'recipe_category',
             'instructions',
             'total_cook_time',
         )
