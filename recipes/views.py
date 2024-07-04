@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Recipe, IngredientQuantity
-from .forms import CommentForm, RecipeFormSet
+from .forms import CommentForm, RecipeFormSet, RecipeForm
+from django.contrib.auth.decorators import login_required
 
 
 class RecipeList(generic.ListView):
@@ -69,17 +70,33 @@ def recipe_page(request, slug):
 
 #     return render(request, 'recipes/upload_recipe.html', {'form': form})
 
+
+# login required decorator docs:
+# https://docs.djangoproject.com/en/5.0/topics/auth/default/#auth-admin
+@login_required
 def upload_recipe(request, recipe_id=None):
     if recipe_id:
         recipe = get_object_or_404(Recipe, id=recipe_id)
     else:
-        recipe = Recipe()
+        recipe = Recipe(author=request.user)
     if request.method == 'POST':
-        formset = RecipeFormSet(request.POST, instance=recipe)
-
-        if formset.is_valid():
-            formset.save()
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            formset = RecipeFormSet(request.POST, instance=recipe)
+            if formset.is_valid():
+                # Save recipe form data once valid
+                recipe.save()
+                # save ingredient formset
+                formset.save()
+                # redirect to homepage
+                return redirect('home')
+        else:
+            formset = RecipeFormSet(request.POST, instance=recipe)
     else:
+        form = RecipeForm(instance=recipe)
         formset = RecipeFormSet(instance=recipe)
 
-    return render(request, 'recipes/upload_recipe.html', {'formset': formset})
+    return render(
+        request, 'recipes/upload_recipe.html',
+        {'formset': formset, 'form': form})

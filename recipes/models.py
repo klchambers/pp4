@@ -40,7 +40,8 @@ class Recipe(models.Model):
         User, on_delete=models.CASCADE, related_name="user_recipes")
     recipe_category = models.ManyToManyField(
         Category,
-        related_name="category_recipes")
+        related_name="category_recipes",
+        blank=True)
     instructions = models.TextField(null=True)
     """
     DurationField = 'A field for storing periods of time - modeled in Python

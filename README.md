@@ -176,6 +176,7 @@ To contribute, make a pull request from the [project repository](https://github.
 * [**Django Allauth**]():
 * [**Summernote**]():
 * [**Whitenoise**](): 
+* [**Crispy Forms**](): 
 * [**Lucidchart**](https://www.lucidchart.com/pages/): Creation of diagram schema and Entity Relationship Diagrams
 
 <a id=acknowledgements></a>
@@ -183,3 +184,4 @@ To contribute, make a pull request from the [project repository](https://github.
 ## Acknowledgements
 
 * Code to register ModelAdmin classes and configure list views in recipes/admin.py adapted from [MDN Web Docs: *Django Tutorial Part 4: Django admin site*](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site)
+* https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/
