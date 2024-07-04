@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -34,7 +35,7 @@ class Recipe(models.Model):
     """
     Recipe model represents a recipe entry in the application
     """
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_recipes")
@@ -57,6 +58,13 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     # default=0 sets default status of a new post to 'draft' not 'published'
     status = models.IntegerField(choices=STATUS, default=0)
+
+    # Use of slugify adapted from code posted by Ikechukwu Henry Odoh
+    # In this Stack Overflow thread:
+    # https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Recipe, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
