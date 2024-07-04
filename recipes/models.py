@@ -43,7 +43,9 @@ class Recipe(models.Model):
         Category,
         related_name="category_recipes",
         blank=True)
-    instructions = models.TextField(null=True)
+    instructions = models.TextField(null=True,
+                                    help_text='''Please enter each new step on
+    a new line preceded by a hyphen (-) or number (e.g. 1:..., 2:...)).''')
     """
     DurationField = 'A field for storing periods of time - modeled in Python
     by timedelta.'
