@@ -68,6 +68,9 @@ class Recipe(models.Model):
         self.slug = slugify(self.title)
         super(Recipe, self).save(*args, **kwargs)
 
+    class meta():
+        ordering = ["-created_on"]
+
     def __str__(self):
         return f"{self.title} | posted by {self.author} on {self.created_on}"
 

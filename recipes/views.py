@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 
 class RecipeList(generic.ListView):
-    queryset = Recipe.objects.filter(status=1)
+    queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = "recipes/index.html"
     paginate_by = 6
 
