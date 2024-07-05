@@ -33,3 +33,8 @@ body {
     background-color: #fff;
     color: #d28b49;
 }
+
+.approval {
+    color: rgb(222, 146, 168);
+    font-style: italic;
+}
