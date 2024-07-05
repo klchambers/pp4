@@ -19,7 +19,7 @@ body {
 .btn-signup,
 .btn-edit {
     background-color: #d28b49;
-    color: #fff;
+    color: #f0f0f0;
 }
 
 .navbar-brand {
@@ -30,6 +30,22 @@ body {
 .btn-signup:active,
 .btn-edit:hover,
 .btn-edit:active {
-    background-color: #fff;
+    background-color: #f0f0f0;
     color: #d28b49;
+}
+
+.approval {
+    color: rgb(222, 146, 168);
+    font-style: italic;
+}
+
+.btn-delete {
+    background-color: red;
+    color: #f0f0f0;
+
+}
+
+.btn-delete:hover {
+    background-color: #f0f0f0;
+    color: red;
 }
