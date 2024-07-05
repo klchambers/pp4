@@ -11,15 +11,15 @@ body {
     background: #f0f0f0;
 }
 
+#parent .recipe-link {
+    text-decoration: none;
+    color: black;
+}
+
 .btn-signup,
 .btn-edit {
     background-color: #d28b49;
     color: #fff;
-}
-
-#parent .recipe-link {
-    text-decoration: none;
-    color: black;
 }
 
 .navbar-brand {
@@ -27,7 +27,9 @@ body {
 }
 
 .btn-signup:hover,
-.btn-signup:active {
+.btn-signup:active,
+.btn-edit:hover,
+.btn-edit:active {
     background-color: #fff;
     color: #d28b49;
 }
