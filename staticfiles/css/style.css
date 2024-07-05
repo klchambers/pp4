@@ -3,11 +3,6 @@ footer p i, footer p a {
     color: black;
 }
 
-footer p i:hover, footer p a:hover {
-    text-decoration: none;
-    color: black;
-}
-
 footer p i {
     font-size: 1.5rem;
 }
@@ -16,14 +11,15 @@ body {
     background: #f0f0f0;
 }
 
+.btn-signup,
+.btn-edit {
+    background-color: #d28b49;
+    color: #fff;
+}
+
 #parent .recipe-link {
     text-decoration: none;
     color: black;
-}
-
-.btn-signup {
-    background-color: #d28b49;
-    color: #fff;
 }
 
 .navbar-brand {
