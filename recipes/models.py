@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -39,6 +40,7 @@ class Recipe(models.Model):
     slug = models.SlugField(max_length=150, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_recipes")
+    featured_image = CloudinaryField('image', default='placeholder')
     recipe_category = models.ManyToManyField(
         Category,
         related_name="category_recipes",

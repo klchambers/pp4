@@ -7,8 +7,13 @@
         <div class="row g-10">
             <!-- Left col = image, title, author & ingredients-->
             <div class="col-md-6">
-                <img src="{% static 'images/toast.jpg' %}" class="scale" alt="placeholder"
-                    style="width: 100%; height: auto;">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top" src="{% static 'images/toast.jpg' %}"
+                  alt="placeholder image"  style="width: 100; height: auto;">
+                {% else %}
+                <img class="card-img-top" src=" {{ recipe.featured_image.url }}"
+                  alt="{{ post.title }}" style="width: 100; height: auto;">
+                {% endif %}
                 <h1>{{ recipe.title }}</h1>
                 <!-- Displaying count of comments -->
                 <div class="row">
