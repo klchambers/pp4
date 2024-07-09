@@ -77,25 +77,20 @@ The program has been deployed to Heroku and can be accessed [here](https://pp4as
 
 ![Application database schematic](documentation/database_schema.png)
 
-A brief description of the five entities in the above schematic diagram:
+A brief description of the entities in the above schematic diagram:
 
 * **User:** Represents a user of the platform who can share recipes, comment on recipes, and favourite recipes.
 
 * **Recipe** Represents a recipe shared by a user. It includes details like title, description, ingredients, directions, etc.
 
-* **RecipeCategory:** Represents a cuisine, category, or type of recipe e.g. ‘Italian’, ‘vegetarian’, or ‘simple’. A Many-to-Many relationship i.e. recipes can be assigned to a number of different categories.
+* **RecipeCategory:** Represents a cuisine, category, or type of recipe e.g. ‘Italian’, ‘vegetarian’, or ‘simple’. A Many-to-Many relationship i.e. recipes can be assigned to a number of different categories. In order to maintain valid, appropriate categories, they are added to recipes by site administrators through the Django admin panel.
 
 * **Comment:** Represents a comment made by a user on a recipe, has a One-to-One relationship with the Recipe entity and includes comment_text and a date_created attribute.
 
-* **FavouriteRecipe:** Represents the relationship between users and their favourite recipes. A One-to-Many relationship whereby a single user can favourite multiple recipes.
+* **Ingredient:** Representing an ingredient. Can be added by the user via the 'Submit a Recipe' form or through the Django administration panel.
 
-#### Entity Relationship Diagrams
+* **IngredientQuantity:** This model facilitates the management of ingredient quantities within recipes, forming a link between specific recipes and their ingredients with respective amounts.
 
-<details>
-<summary>Recipe ERD</summary>
-<br>
-<img src="documentation/recipes_erd.png">
-</details>
 
 <a id=further-development-and-future-features></a>
 
@@ -114,8 +109,8 @@ A brief description of the five entities in the above schematic diagram:
 
 #### Manual Testing Methodology for Django Models
 
-| Test Case ID | Model              | Test Case Description                                                                                                                                   | Steps to Perform                                                                                                 | Expected Result                                                                                  |
-|--------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| Test Case ID | Model | Test Case Description| Steps to Perform| Expected Result|
+|--------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 | TC001        | Category           | Verify that a category can be created with a unique name                                                                                                | 1. Create a category with a unique name.                                                                         | Category is created successfully                                                                |
 | TC002        | Category           | Verify that creating a category with a duplicate name fails                                                                                             | 1. Create a category with an existing name.                                                                      | Error is raised indicating the name must be unique                                              |
 | TC003        | Category           | Verify that categories are retained when the creating user is deleted                                                                                   | 1. Create a user. 2. Create a category with this user. 3. Delete the user.                                       | Category is retained with `created_by` set to null                                              |
@@ -209,3 +204,4 @@ To contribute, make a pull request from the [project repository](https://github.
 * [Image](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) used on about.html was posted by [Matej Madar](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) on Pixabay
 * Favicons generated using [favicon.io](https://favicon.io)
 * Images used in recipes generated using DeepAI's image generator available [here](https://deepai.org/machine-learning-model/text2img)
+* Recipes adapted from recipes posted at [BBC Goodfood](https://www.bbcgoodfood.com)
