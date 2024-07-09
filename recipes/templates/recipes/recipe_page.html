@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}{{ recipe.title }} - RecipeMe{% endblock %}
 {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -46,7 +47,7 @@
                 {% endfor %}
             </p>
             {% endif %}
-            <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+            <p >{{ recipe.author }} | {{ recipe.created_on }}</p>
             <!-- For loop iterates of items in ingredient_quantities and prints ingredient & corresponding quantity value -->
             <div class="card-body ingredientsList">
                 {% for ingredientquantity in ingredient_quantities %}
