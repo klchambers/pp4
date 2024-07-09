@@ -5,7 +5,7 @@ addEventListener("DOMContentLoaded", function() {
   const submitButton = document.getElementById("submitButton");
 
   const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-  const deleteButtons = document.getElementsByClassName("btn-delete");
+  const deleteButtons = document.getElementsByClassName("btn-delete-comment");
   const deleteConfirm = document.getElementById("deleteConfirm");
 
   /**

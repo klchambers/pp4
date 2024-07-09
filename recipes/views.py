@@ -173,3 +173,20 @@ def comment_delete(request, slug, comment_id):
                              'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('recipe_page', args=[slug]))
+
+
+@login_required
+def delete_recipe(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+
+    # Check if the logged-in user is the author of the recipe
+    if recipe.author != request.user:
+        return redirect('recipe_page', slug=recipe.slug)
+
+    if request.method == 'POST':
+        recipe.delete()
+        messages.success(request, 'Recipe deleted successfully!')
+        return redirect('home')  # Redirect to recipe_page
+
+    # If the request method is not POST, render the confirmation template
+    return render(request, 'recipes/delete_recipe.html', {'recipe': recipe})
