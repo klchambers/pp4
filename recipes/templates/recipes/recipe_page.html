@@ -8,8 +8,8 @@
     <div class="row g-10">
         <!-- Left col = image, title, author & ingredients-->
         <div class="col-md-6">
-            {% if "placeholder" in post.featured_image.url %}
-            <img class="card-img-top" src="{% static 'images/toast.jpg' %}" alt="placeholder image" style="width: 100; height: auto;">
+            {% if "placeholder" in recipe.featured_image.url %}
+            <img class="card-img-top" src="{% static 'images/placeholder.jpg' %}" alt="placeholder image" style="width: 100; height: auto;">
             {% else %}
             <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ post.title }}" style="width: 100; height: auto;">
             {% endif %}
@@ -20,6 +20,7 @@
                     <strong class="text-secondary">
                         <a href="#comments" style="text-decoration: none;"><i class="far fa-comments"></i> <em>{{ comment_count }}</em></a>
                     </strong>
+                    <p></p>
                     <!-- Only show delete button if user is authenticated and is the author of the recipe -->
                     {% if user.is_authenticated and recipe.author == user %}
                     <button type="button" class="btn btn-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteRecipeModal">
