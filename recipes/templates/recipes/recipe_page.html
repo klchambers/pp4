@@ -11,7 +11,7 @@
             {% if "placeholder" in recipe.featured_image.url %}
             <img class="card-img-top" src="{% static 'images/placeholder.jpg' %}" alt="placeholder image" style="width: 100; height: auto;">
             {% else %}
-            <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ post.title }}" style="width: 100; height: auto;">
+            <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}" style="width: 100; height: auto;">
             {% endif %}
             <h1>{{ recipe.title }}</h1>
             <!-- Displaying count of comments -->

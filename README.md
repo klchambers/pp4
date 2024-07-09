@@ -206,6 +206,6 @@ To contribute, make a pull request from the [project repository](https://github.
 * Code to register ModelAdmin classes and configure list views in recipes/admin.py adapted from [MDN Web Docs: *Django Tutorial Part 4: Django admin site*](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site)
 * Use of InlineFormSet and inlineformset_factory adapted from code published here: [Django Documentation: *Creating forms from models*](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/)
 * [Placeholder image](https://unsplash.com/photos/person-cutting-vegetables-with-knife-yWG-ndhxvqY) by [Alyson McPhee](https://unsplash.com/@alyson_jane) on Unsplash
-* [Image](https://unsplash.com/photos/person-slicing-vegetable-uB7q7aipU2o) used on about.html by [Jonathan Borba](https://unsplash.com/@jonathanborba) and posted to Unsplash
-* [Image](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) used on about.html by [Matej Madar](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) and posted to Pixabay
+* [Image](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) used on about.html was posted by [Matej Madar](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) on Pixabay
 * Favicons generated using [favicon.io](https://favicon.io)
+* Images used in recipes generated using DeepAI's image generator available [here](https://deepai.org/machine-learning-model/text2img)

@@ -69,22 +69,6 @@ def recipe_page(request, slug):
     )
 
 
-# def upload_recipe(request):
-#     if request.method == 'POST':
-#         form = RecipeForm(request.POST)
-#         if form.is_valid():
-#             recipe = form.save(commit=False)
-#             recipe.author = request.user
-#             recipe.save()
-#             form.save_m2m()  # Save the many-to-many data for the form
-#             # Redirect sto recipe_page
-#             return redirect('recipe_page', slug=recipe.slug)
-#     else:
-#         form = RecipeForm()
-
-#     return render(request, 'recipes/upload_recipe.html', {'form': form})
-
-
 # login required decorator docs:
 # https://docs.djangoproject.com/en/5.0/topics/auth/default/#auth-admin
 @login_required
