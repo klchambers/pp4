@@ -11,15 +11,16 @@
 
       {{ about.content | safe }}
     </div>
+    <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+      <!-- Image -->
+      <img src="{% static 'images/about_img_spoons.jpg' %}" class="img-fluid"/>
+    </div>
   </div>
   <div class="row">
     <div class="col text-right">
       <!-- Updated on field goes in here -->
       <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
     </div>
-  </div>
-  <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
-    <img src="{% static 'images/toast.jpg' %}" class="img-fluid"/>
   </div>
 </div>
 {% endblock content %}

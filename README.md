@@ -207,6 +207,5 @@ To contribute, make a pull request from the [project repository](https://github.
 * Use of InlineFormSet and inlineformset_factory adapted from code published here: [Django Documentation: *Creating forms from models*](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/)
 * [Placeholder image](https://unsplash.com/photos/person-cutting-vegetables-with-knife-yWG-ndhxvqY) by [Alyson McPhee](https://unsplash.com/@alyson_jane) on Unsplash
 * [Image](https://unsplash.com/photos/person-slicing-vegetable-uB7q7aipU2o) used on about.html by [Jonathan Borba](https://unsplash.com/@jonathanborba) and posted to Unsplash
+* [Image](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) used on about.html by [Matej Madar](https://pixabay.com/photos/spices-kitchen-ingredients-flavor-4185324/) and posted to Pixabay
 * Favicons generated using [favicon.io](https://favicon.io)
-Photo by <a href="https://unsplash.com/@rawtager?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Dmitry Kovalchuk</a> on <a href="https://unsplash.com/photos/stainless-steel-spoon-on-brown-wooden-round-plate-fRmdIVd9bcs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-  
