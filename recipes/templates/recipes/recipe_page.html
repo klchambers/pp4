@@ -9,9 +9,9 @@
         <!-- Left col = image, title, author & ingredients-->
         <div class="col-md-6">
             {% if "placeholder" in recipe.featured_image.url %}
-            <img class="card-img-top" src="{% static 'images/placeholder.jpg' %}" alt="placeholder image" style="width: 100; height: auto;">
+            <img class="card-img-top" src="{% static 'images/placeholder.jpg' %}" alt="placeholder image" style="width: 100%; height: auto;">
             {% else %}
-            <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}" style="width: 100; height: auto;">
+            <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}" style="width: 100%; height: auto;">
             {% endif %}
             <h1>{{ recipe.title }}</h1>
             <!-- Displaying count of comments -->
@@ -94,7 +94,7 @@
                             {% endif %}
                             {% if user.is_authenticated and comment.author == user %}
                             <button class="btn btn-delete btn-delete-comment"
-                            comment_id="{{ comment.id }}">Delete</button>
+                            data-comment_id="{{ comment.id }}">Delete</button>
                             <a href="#commentForm" class="btn btn-edit"
                                 comment_id="{{ comment.id }}">Edit</a>
                             {% endif %}
