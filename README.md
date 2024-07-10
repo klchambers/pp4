@@ -43,9 +43,9 @@ The program has been deployed to Heroku and can be accessed [here](https://pp4as
 
 <a id="workflow-logic-charts"></a>
 
-### Workflow Logic Charts
+### Workflow Logic Chart
 
-
+![Application database schematic](documentation/pp4-logic.png)
 
 <a id=user-goals></a>
 
