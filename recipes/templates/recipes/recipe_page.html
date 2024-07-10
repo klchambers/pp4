@@ -62,7 +62,7 @@
         <div class="col-md-6 mt-md-2">
             <h3>Method</h3>
             <!-- safe filter allows HTML formatting to be applied -->
-            <p>{{ recipe.instructions | safe }}</p>
+            {{ recipe.instructions | safe }}
 
             <!-- Displaying Comments and Creating New Comments within the same row -->
             <div class="row">
