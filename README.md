@@ -28,7 +28,13 @@
 
 ## Introduction
 
+![Recipe Responsiveness Mockup](/documentation/responsiveness-mockup.png)
 
+RecipeMe is designed to be a user-friendly, responsive, and social recipe-sharing site.
+
+Recipes are shown on the homepage in a chronological order (newest first) so that return users can see the latest recipes posted.
+
+Logged-in users can submit a recipe to be published, and leave comments on existing recipes. 
 
 <a id=deployed-site></a>
 
@@ -70,19 +76,90 @@ Only users who are logged in are able to leave comments or submit recipes, and t
 
 ### User Goals
 
+* I would like to find recipes with ingredients and instructions listed in a way that is easy to read
 
+* I would like to leave comments and feedback to recipe authors
+
+* I would like to submit my own recipes to be posted
 
 <a id=user-stories></a>
 
 ### User Stories
 
+#### As a user I can register for an account so that I can access user-only features
 
+* Acceptance criteria 1: Registering for an account should be straightforward, and I should be able to create a username and password with my email address
+
+* Acceptance criteria 2: With an account I should be able to log in
+
+* Acceptance criteria 3: Data that I create and submit to the site should be saved and accessible by me the next time that I log in
+
+#### As a Site Admin I can create, read, update and delete recipes so that I can manage the site's content
+
+* Acceptance Criteria 1: Users logged in a a Site Administrator can create recipes
+
+* Acceptance Criteria 2: Users logged in a a Site Administrator can view recipes
+
+* Acceptance Criteria 3: Users logged in a a Site Administrator can edit recipes
+
+* Acceptance Criteria 4: Users logged in a a Site Administrator can delete recipes
+
+#### As a user I can create a recipe so that I can share it with other site users.
+
+* Acceptance Criteria 1: Option to save a draft so as not to lose progress
+
+* Acceptance Criteria 2: Upload my recipe with an ingredients section, cooking instructions, and photo
+
+* Acceptance Criteria 3: Be able to edit or delete my existing recipes
+
+* Acceptance Criteria 4:  Recipes should be approved by a site administrator before being published
+
+#### As a user I want to comment on a recipe to leave feedback and recommendations to other users
+
+* Acceptance Criteria 1: Comments should include an automatically created 'date created' (and 'date edited', if applicable) field
+
+* Acceptance Criteria 2: Comments should have CRUD (Create, Read, Update, Delete) functionality
+
+* Acceptance Criteria 3: Comments should first be approved by a site administrator before being made public, in order to prevent spam or irrelevant links from being posted to the site
+
+#### As a user I would like to view a list of posted recipes so that I can see and choose posted recipes to interact with.
+
+* Acceptance Criteria 1: Given more than one post is in the database, these multiple posts are listed.
+
+* Acceptance Criteria 2: When a user opens the main page a list of posts is seen
+
+* Acceptance Criteria 3: Then the user sees all post titles with pagination to choose what to read
+
+#### As a user I would like to open a recipe from the homepage so that I can read the ingredients, method, and interact with it
+
+* Acceptance Criteria 1: When a recipe link is clicked on the homepage the relevant recipe page should open
+
+* Acceptance Criteria 2: The resulting page should be laid out in an intuitive, navigable style
+
+#### As a user I would like to visit an 'About' page in order to learn more about the site
+
+* Acceptance Criteria 1: The About page should contain relevant and up to date information
+* Acceptance Criteria 2: The page should be easily accessible with a link in the nav bar
+
+#### As a Site Administrator I would like to add and update information on an 'About' page in order to inform visitors of the site and its purpose
+
+* Acceptance Criteria 1: I should be able to add and update information on the about page through Django's admin panel
+
+#### As a user I want to be able to upload images with my recipe to provide readers with a visual representation of the dish
+
+* Acceptance Criteria 1: Images should be stored persistently
+
+* Acceptance Criteria 2: I should be able to submit images in common, expected image file formats
 
 <a id=site-owners-goals></a>
 
 ### Site Owner's Goals
 
+* I need to approve comments and recipes before they are posted and made visible to all users
 
+* I would like to manage recipes, ctegories, and ingredients through Django's administration panel
+
+* I would like to be easily update the site's 'About' page to keep visitors informed of the site and its purpose
 
 <a id=features></a>
 
