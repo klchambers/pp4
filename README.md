@@ -113,11 +113,59 @@ A brief description of the entities in the above schematic diagram:
 
 ### W3C HTML and CSS Validation
 
+#### HTML
+
+HTML validation of individual pages can be viewed in the drop down boxes below:
+
+<details open>
+<summary>Homepage</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/homepage-html-Validation.png'>
+</details>
+
+<details open>
+<summary>Recipe Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/recipe_page-validation.png'>
+</details>
+
+<details open>
+<summary>About Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/about.html-validation.png'>
+</details>
+
+<details open>
+<summary>Submit Recipe Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/recipe_upload-validation.png'>
+</details>
+
+<details open>
+<summary>Login Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/signin-validation.png'>
+</details>
+
+<details open>
+<summary>Logout Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/logout-validation.png'>
+</details>
+
+<details open>
+<summary>Signup Page</summary>
+<br>
+<img src='./documentation/validation_screenshots/html-validation-screenshots/signup-validation.png'>
+<br>
+<p>Some errors were presented when the rendered HTML from this page was passed into W3C's HTML text input validator. In the HTML pasted from the page source (shown below), the Span tag and P tag from Django Allauth appear to raise errors, but on manual inspection no errors were found, and the page functions as expected.
+<img src='./documentation/validation_screenshots/html-validation-screenshots/signup-html.png'>
+</details>
+
 #### CSS
 
 RecipeMe's CSS passed the validation with no errors. Some warnings were presented, relating to styles applied through the use of Bootstrap CSS. The CSS validation results can be viewed [here](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fpp4assignment-81282f23e92d.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1).
 
-#### HTML
 
 <a id=jshint-code-analysis></a>
 
