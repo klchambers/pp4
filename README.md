@@ -262,7 +262,7 @@ During development, the following bugs were identified which have since been ame
 
 * In an early deployment of the app, ingredient quantities were attributes of the Ingredient model. This resulted in it being impossible to have the same ingredient with different quantity amounts in more than one recipe. This was solved by creating an intermediate model (`IngredientQuantity`) which has a `CharField` named 'quantity', and links to both the `Ingredient` and the `Recipe` models via ForeignKeys
 
-* Due to limitations of a Postgres service used, the `DATABASE_URL` variable stored in env.py was updated to a new [Neon](https://neon.tech/) database. This change was not immediately reflected in Heroku's Config Vars, resulting in the application failing to load in the Heroku deployment. This was resolved by updated the DATABASE_URL configuration variable in the Heroku app settings. 
+* Due to limitations of a Postgres service used, the `DATABASE_URL` variable stored in env.py was updated to a new [Neon](https://neon.tech/) database. This change was not immediately reflected in Heroku's Config Vars, resulting in server 500 errors and the application failing to load in the Heroku deployment. This was resolved by updated the DATABASE_URL configuration variable in the Heroku app settings. 
 
 <a id=development-and-deployment></a>
 
