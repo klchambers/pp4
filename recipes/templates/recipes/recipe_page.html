@@ -35,12 +35,14 @@
                 </div>
             </div>
             <!-- If statement checks how many categories are linked to the recipe and prints them on page -->
+             <!-- Prints 'Categories:' if more than one-->
             {% if recipe.recipe_category.all|length > 1 %}
             <p>Categories:
                 {% for category in recipe.recipe_category.all %}
                 {{ category.category_name }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
             </p>
+            <!-- Prints 'Category:' if one -->
             {% elif recipe.recipe_category.all|length == 1 %}
             <p>Category:
                 {% for category in recipe.recipe_category.all %}

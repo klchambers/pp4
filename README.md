@@ -89,6 +89,7 @@ Only users who are logged in are able to leave comments or submit recipes, and t
 ## Features
 
 
+
 <a id=data-model></a>
 
 ### Data Model
@@ -284,7 +285,84 @@ To contribute, make a pull request from the [project repository](https://github.
 
 ### Deployment
 
+#### Prerequisites
+* Heroku Account: Ensure you have an active Heroku account. You can sign up at Heroku.
+* Heroku CLI: Install the Heroku Command Line Interface (CLI) on your local machine. Instructions for installation can be found here.
+* Git: Ensure Git is installed and configured on your local machine. Instructions for installation can be found here.
+* PostgreSQL Database: The application uses a PostgreSQL database. You can use Heroku's PostgreSQL add-on or an external provider like Neon.
 
+#### Steps to Deploy
+
+1. Clone the Repository
+
+`git clone https://github.com/klchambers/pp4.git`
+
+`cd pp4`
+
+2. Create a Virtual Environment and Install Dependencies
+
+`python -m venv venv`
+
+`source venv/bin/activate`, or on Windows use `venv\Scripts\activate`
+
+`pip install -r requirements.txt`
+
+3. Set Up Environment Variables
+
+Create an env.py file in the root directory and add the following environment variables:
+
+`import os`
+
+`os.environ.setdefault('DATABASE_URL', <your_database_url>)`
+
+`os.environ.setdefault('SECRET_KEY', <your_database_url>)`
+
+(note: Add .env.py/env.py to .gitignore and save before pushing your code to Github. This will prevent sensitive information from being made publicly available)
+
+In the project's settings.py file, import your database URL and secret key:
+
+`if os.path.isfile('env.py'):
+    import env`
+
+`SECRET_KEY = os.environ.get('SECRET_KEY')`
+
+Add `.herokuapp.com` to ALLOWED_HOSTS
+
+4. Prepare Static Assets
+
+`python manage.py collectstatic`
+
+5. Initialize a Git Repository
+
+`git init`
+
+`git add .`
+
+`git commit -m "Initial commit"`
+
+6. Create a Heroku App
+
+`heroku create recipeme-app`
+
+7. Deploy to Heroku
+
+`git push heroku main`
+
+8. Apply DB migrations
+
+`python3 manage.py makemigrations`
+
+`python3 manage.py migrate`
+
+9. Create a Superuser
+
+`python manage.py createsuperuser`
+
+Follow the instructions in your terminal to create your superuser account username and passwords
+
+10. Open the application
+
+`heroku open`
 
 <a id=technologies-used></a>
 
