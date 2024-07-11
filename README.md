@@ -165,7 +165,54 @@ Only users who are logged in are able to leave comments or submit recipes, and t
 
 ## Features
 
+A logged out user has a number of options available to them from the homepage. From the navbar menu, they can click on a recipe to see the full recipe and instructions, register for an account, log in, or view the 'About' page.
 
+![Logged out homepage screenshot](/documentation/pp4_screenshots/homepage-logged-out.png)
+
+When a registered user selects 'Login' and correctly enters their username and password, a message pops up confirming their login, and the elements in the navbar change. A 'Hello, *User*' message indicates that the user is logged in and indicates the username that they are logged in with. From the navbar, they can now choose to Submit a Recipe, or Logout
+
+
+![Logged in successfully screenshot](/documentation/pp4_screenshots/homepage-logged-in.png)
+
+The app's sign in page is the Django AllAuth signin page with custom styling. Registered users can sign in with their username and password, and have the option to choose 'remember me' to streamline their experience on subsequent visits.
+
+![signin page screenshot](/documentation/pp4_screenshots/signin.png)
+
+By clicking on a recipe, a user can see a comment count (clicking the comment count icon skips the user to comments on all screen sizes), with the ingredients below the Total Cooking time. A user-uploaded image is prominently displayed, or a placeholder image if no image is provided. On the right hand side of the screen are instructions, with the comments below. The comment text field invites the user to log in to comment, if they are not logged in. 
+
+![recipe_page.html screenshot](/documentation/pp4_screenshots/recipe_page.png)
+
+On mobile-sized devices, the page content is displayed to the user in one column instead of two. Here, the comment count link is particularly helpful in allowing the user to skip to this content instead of scrolling through long recipes.
+
+![recipe_page.html mobile screenshot](/documentation/pp4_screenshots/recipe_page-mobile.png)
+
+When a logged in user posts a comment, it is pending approval by a site administrator. A message indicates this to the user, and is not displayed when the comment gets approved. This comment is not viewable by anyone but its author on the recipe page until the comment is approved.
+
+The below screenshot illustrates the functionality of the 'edit' button. The user is taken down to the comment field, and the text field is prepopulated with the comment to edit, with the button text updated to read 'Update'. In this screenshot, the user is using the 'edit' comment functionality to correct typos in their message.
+
+![Edit comment field screenshot](/documentation/pp4_screenshots/edit-comment.png)
+
+After making their changes and pressing 'Update', a message is printed on screen to inform the user that their edit has been made successfully. All edits revert approved comments to unapproved to prevent the posting of spam.
+
+![Comment edit confirmation screenshot](/documentation/pp4_screenshots/comment-edited.png)
+
+When a user presses the button to delete their comment, they are asked to confirm this choice via a modal displayed on screen. The 'Delete' button to confirm deletion is displayed in red.
+
+![Comment deletion modal screenshot](/documentation/pp4_screenshots/delete-comment.png)
+
+![Comment deletion modal mobile screenshot](/documentation/pp4_screenshots/comment-delete-modal.png)
+
+Choosing 'Submit a Recipe' in the navbar takes the user to a form to provide a title, ingredients, ingredient quantities, and instructions to be posted. Upon successful input of valid data, the user is presented with the below message.
+
+![Recipe submission message screenshot](/documentation/pp4_screenshots/recipe-submitted.png)
+
+Once a recipe is successfully submitted the data will be available to site admins and superusers in the Django Administration panel. This method allows site admins to confirm the validity and authenticity of recipes, and make any necessary formatting changes or edits before publishing.
+
+![approving/publishing recipe screenshot](/documentation/pp4_screenshots/recipe-submissionapproval.png)
+
+The About page features a prominent image on the right hand side of the screen with data from the 'About' model displayed on the left. An 'updated on' field automatically updates when this data is changed and lets visitors know how recently this data was posted or edited.
+
+![about.html screenshot](/documentation/pp4_screenshots/about.png)
 
 <a id=data-model></a>
 
@@ -192,7 +239,15 @@ A brief description of the entities in the above schematic diagram:
 
 ### Further Development and Future Features
 
+Ideas for future development of RecipeMe include the following:
 
+* Export recipes in PDF format for easy sharing/printing
+
+* URL share buttons/Share on social media buttons to share recipes with friends and family across a range of social media networks
+
+* 'Favourites': Create a 'favourite' or 'like' button which increments with clicks from logged in users to indicate popular recipes
+
+* User profiles: Create user profile pages displaying posted recipes & comments, favourited recipes, and a bio and profile photograph to increase the social aspect of the site
 
 <a id=testing-and-validation></a>
 
@@ -456,6 +511,7 @@ Follow the instructions in your terminal to create your superuser account userna
 * [**Whitenoise**](https://whitenoise.readthedocs.io/en/latest/): Static file serving for Python web apps
 * [**Crispy Forms**](https://django-crispy-forms.readthedocs.io/en/latest/): Django form styling
 * [**Lucidchart**](https://www.lucidchart.com/pages/): Creation of diagram schema and Entity Relationship Diagrams
+* [**DBDiagram.io**](https://dbdiagram.io/): Database Relationship Diagrams design tool
 
 <a id=acknowledgements></a>
 
