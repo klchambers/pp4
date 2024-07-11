@@ -12,7 +12,7 @@
   - [Data Model](#data-model)
   - [Further Development and Future Features](#further-development-and-future-features)
 - [Testing and Validation](#testing-and-validation)
-  - [Automated Testing](#automated-testing)
+  - [W3C CSS Validation](#w3c-css-validation)
   - [Manual Testing Methodology](#manual-testing-methodology)
   - [W3C HTML and CSS Validation](#w3c-html-and-css-validation)
   - [Pep-8 Code Analysis](#pep-8-code-analysis)
@@ -102,6 +102,11 @@ A brief description of the entities in the above schematic diagram:
 
 ## Testing and Validation
 
+<a id='w3c-css-validation'></a>
+
+### W3C CSS Validation
+
+RecipeMe's CSS passed the validation with no errors. Some warnings were presented, relating to styles applied through the use of Bootstrap CSS. The CSS validation results can be viewed [here](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fpp4assignment-81282f23e92d.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1).
 
 <a id=manual-testing-methodology></a>
 
