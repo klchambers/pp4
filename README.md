@@ -50,7 +50,7 @@ The background is an off-white shade (#f0f0f0), chosen to be slightly less inten
 
 #### Typography
 
-Default Bootstrap sans serif typefaces were used throughout the site for their legibility across devices, screen/font sizes, with the exception of the RecipeMe logo in the page headers. For this, the serif font Merriweather by [Sorkin Type](https://fonts.google.com/?query=Sorkin+Type) was chosen from Google Fonts as it is easily legible while distinct enough to establish an identity for the site.
+Default Bootstrap sans serif typefaces were used throughout the site for their legibility across devices, screen/font sizes, with the exception of the RecipeMe logo in the page headers. For this, the serif font [Merriweather](https://fonts.google.com/specimen/Merriweather) by [Sorkin Type](https://fonts.google.com/?query=Sorkin+Type) was chosen from Google Fonts as it is easily legible while distinct enough to establish an identity for the site.
 
 <a id="workflow-logic-charts"></a>
 
@@ -86,7 +86,6 @@ Only users who are logged in are able to leave comments or submit recipes, and t
 <a id=features></a>
 
 ## Features
-
 
 
 <a id=data-model></a>
