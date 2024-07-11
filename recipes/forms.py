@@ -10,7 +10,17 @@ class CommentForm(forms.ModelForm):
 
 
 class RecipeForm(forms.ModelForm):
+    """
+    Form for creating or editing a recipe.
 
+    Fields:
+        title (str): The title of the recipe.
+        featured_image (ImageField): The featured image for the recipe.
+        instructions (str): The cooking instructions for the recipe.
+        total_cook_time (DurationField): The total cooking time for the recipe.
+        ingredients (str): Ingredients input as a comma-separated string.
+        quantities (str): Quantities input as a comma-separated string.
+    """
     ingredients = forms.CharField(
         label='Ingredients',
         widget=forms.TextInput(
@@ -34,6 +44,7 @@ class RecipeForm(forms.ModelForm):
         }
 
 
+# Links IngredientQuantity instances to a Recipe instance.
 # Adapted from the inline formset section of Django documentation
 # Available here:
 # https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/

@@ -16,6 +16,9 @@ from django.http import HttpResponseRedirect
 
 
 class RecipeList(generic.ListView):
+    """
+    View to list all published recipes, ordered by creation date.
+    """
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = "recipes/index.html"
     paginate_by = 6
@@ -23,16 +26,26 @@ class RecipeList(generic.ListView):
 
 def recipe_page(request, slug):
     """
-    Display an individual :model:`recipe.Recipe`.
+    Display an individual recipe along with its ingredients,
+    quantities, and comments.
 
     **Context**
 
     ``recipe``
         An instance of :model:`recipe.Recipe`.
+    ``ingredient_quantities``
+        A list of instances of :model:`recipe.IngredientQuantity`
+        for the recipe.
+    ``comments``
+        A list of instances of :model:`recipe.Comment` for the recipe.
+    ``comment_count``
+        The number of approved comments for the recipe.
+    ``comment_form``
+        An instance of :form:`recipe.CommentForm` for adding new comments.
 
     **Template:**
 
-    :template:`recipe/recipe_page.html`
+    :template:`recipes/recipe_page.html`
     """
 
     queryset = Recipe.objects.filter(status=1)
@@ -73,6 +86,18 @@ def recipe_page(request, slug):
 # https://docs.djangoproject.com/en/5.0/topics/auth/default/#auth-admin
 @login_required
 def upload_recipe(request, recipe_id=None):
+    """
+    Handle uploading a new recipe.
+
+    **Context**
+
+    ``form``
+        An instance of :form:`recipe.RecipeForm` for submitting recipe data.
+
+    **Template:**
+
+    :template:`recipes/upload_recipe.html`
+    """
     if request.method == 'POST':
         form = RecipeForm(request.POST)
         if form.is_valid():
@@ -100,15 +125,15 @@ def upload_recipe(request, recipe_id=None):
                 ingredient, _ = Ingredient.objects.get_or_create(
                     name=ingredient_name)
 
-                # Create or update IngredientQuantity instance
+                # Create IngredientQuantity instance
                 IngredientQuantity.objects.create(
                     recipe=recipe,
                     ingredient=ingredient,
                     quantity=quantities_list[idx] if idx < len(quantities_list)
                     else ''
                 )
-
-            return redirect('home')  # Redirect after successful save
+            # Redirect after successful save
+            return redirect('home')
     else:
         form = RecipeForm()
 
@@ -117,7 +142,15 @@ def upload_recipe(request, recipe_id=None):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    View to edit an existing comment on a recipe.
+
+    **Context**
+
+    None.
+
+    **Redirect:**
+
+    Redirects to the recipe page after the comment is edited.
     """
     if request.method == "POST":
 
@@ -161,6 +194,18 @@ def comment_delete(request, slug, comment_id):
 
 @login_required
 def delete_recipe(request, slug):
+    """
+    Handle the deletion of a recipe by its author.
+
+    **Context**
+
+    ``recipe``
+        An instance of :model:`recipe.Recipe`.
+
+    **Template:**
+
+    :template:`recipes/delete_recipe.html`
+    """
     recipe = get_object_or_404(Recipe, slug=slug)
 
     # Check if the logged-in user is the author of the recipe
