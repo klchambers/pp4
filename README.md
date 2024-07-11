@@ -1,3 +1,4 @@
+![RecipeMe Logo](documentation/recipeme-logo.png)
 
 **Table of contents:**
 
@@ -267,8 +268,6 @@ During development, the following bugs were identified which have since been ame
 <a id=development-and-deployment></a>
 
 ## Development and Deployment
-
-
 
 <a id=development></a>
 
