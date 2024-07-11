@@ -256,7 +256,13 @@ script.js passed through the JSHint Code Analysis tool with no errors reported. 
 
 ### Bugs and Challenges
 
+There are no known bugs in the current Heroku deployment of RecipeMe, following comprehensive and thorough testing of the site and it's features.
 
+During development, the following bugs were identified which have since been amended:
+
+* In an early deployment of the app, ingredient quantities were attributes of the Ingredient model. This resulted in it being impossible to have the same ingredient with different quantity amounts in more than one recipe. This was solved by creating an intermediate model (`IngredientQuantity`) which has a `CharField` named 'quantity', and links to both the `Ingredient` and the `Recipe` models via ForeignKeys
+
+* Due to limitations of a Postgres service used, the `DATABASE_URL` variable stored in env.py was updated to a new [Neon](https://neon.tech/) database. This change was not immediately reflected in Heroku's Config Vars, resulting in the application failing to load in the Heroku deployment. This was resolved by updated the DATABASE_URL configuration variable in the Heroku app settings. 
 
 <a id=development-and-deployment></a>
 
@@ -268,14 +274,13 @@ script.js passed through the JSHint Code Analysis tool with no errors reported. 
 
 ### Development
 
-Development was started by cloning Code Institute's project template (available [here](https://github.com/Code-Institute-Org/p3-template)), and development was carried out in VSCode with changes pushed to GitHub.
+Development was started by cloning Code Institute's project template (available [here](https://github.com/Code-Institute-Org/ci-full-template)), and development was carried out in VSCode with changes pushed to GitHub.
 
 <a id=contributing></a>
 
 ### Contributing
 
-To contribute, make a pull request from the [project repository](https://github.com/klchambers/pp4). When merged, any changes will automatically be reflected in the live deployment on Heroku.
-
+To contribute, make a pull request from the [project repository](https://github.com/klchambers/pp4). When merged, any changes will be reflected following the next Heroku deployment of the project.
 <a id=deployment></a>
 
 ### Deployment
