@@ -117,43 +117,43 @@ A brief description of the entities in the above schematic diagram:
 
 HTML validation of individual pages can be viewed in the drop down boxes below:
 
-<details open>
+<details>
 <summary>Homepage</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/homepage-html-Validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>Recipe Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/recipe_page-validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>About Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/about.html-validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>Submit Recipe Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/recipe_upload-validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>Login Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/signin-validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>Logout Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/logout-validation.png'>
 </details>
 
-<details open>
+<details>
 <summary>Signup Page</summary>
 <br>
 <img src='./documentation/validation_screenshots/html-validation-screenshots/signup-validation.png'>
@@ -173,7 +173,7 @@ RecipeMe's CSS passed the validation with no errors. Some warnings were presente
 
 script.js passed through the JSHint Code Analysis tool with no errors reported. The full screenshot can be viewed in the dropdown menu below.
 
-<details open>
+<details>
 <summary>JSHint Code Analysis Screenshot</summary>
 <br>
 <img src='./documentation/validation_screenshots/script.js-validation.png'>
