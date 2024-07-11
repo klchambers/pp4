@@ -12,10 +12,9 @@
   - [Data Model](#data-model)
   - [Further Development and Future Features](#further-development-and-future-features)
 - [Testing and Validation](#testing-and-validation)
-  - [W3C CSS Validation](#w3c-css-validation)
-  - [Manual Testing Methodology](#manual-testing-methodology)
   - [W3C HTML and CSS Validation](#w3c-html-and-css-validation)
-  - [Pep-8 Code Analysis](#pep-8-code-analysis)
+  - [JSHint Code Analysis](#jshint-code-analysis)
+  - [Manual Testing Methodology](#manual-testing-methodology)
   - [Bugs and Challenges](#bugs-and-challenges)
   - [Development](#development)
   - [Contributing](#contributing)
@@ -102,11 +101,28 @@ A brief description of the entities in the above schematic diagram:
 
 ## Testing and Validation
 
-<a id='w3c-css-validation'></a>
+<a id=w3c-html-and-css-validation></a>
 
-### W3C CSS Validation
+### W3C HTML and CSS Validation
+
+#### CSS
 
 RecipeMe's CSS passed the validation with no errors. Some warnings were presented, relating to styles applied through the use of Bootstrap CSS. The CSS validation results can be viewed [here](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fpp4assignment-81282f23e92d.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1).
+
+#### HTML
+
+<a id=jshint-code-analysis></a>
+
+### JSHint Code Analysis
+
+script.js passed through the JSHint Code Analysis tool with no errors reported. The full screenshot can be viewed in the dropdown menu below.
+
+<details open>
+<summary>JSHint Code Analysis Screenshot</summary>
+<br>
+<img src='./documentation/validation_screenshots/script.js-validation.png'>
+</details>
+
 
 <a id=manual-testing-methodology></a>
 
@@ -136,21 +152,6 @@ RecipeMe's CSS passed the validation with no errors. Some warnings were presente
 | TC018        | Comment            | Verify that only approved comments are counted in the comment_count property of a recipe                                                               | 1. Add approved and unapproved comments to a recipe.                                                             | comment_count returns the count of only approved comments                                       |
 | TC019        | Comment            | Verify that the created_on field in Comment is automatically populated with the current date and time                                                   | 1. Create a new comment.                                                                                         | created_on field is populated with the current date and time                                    |
 | TC020        | Recipe             | Verify the ordering of recipes is by created_on date in descending order (newest first)                                                                 | 1. Create multiple recipes with different created_on dates.                                                      | Recipes are ordered by created_on date in descending order                                      |
-
-#### 
-
-
-<a id=w3c-html-and-css-validation></a>
-
-### W3C HTML and CSS Validation
-
-
-
-<a id=pep8-code-analysis></a>
-
-### Pep-8 Code Analysis
-
-
 
 <a id=bugs-and-challenges></a>
 
